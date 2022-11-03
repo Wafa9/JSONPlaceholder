@@ -1,0 +1,1 @@
+document.getElementById("user").addEventListener("click", function () { alert("Hello World!") + console.log('wafa0000'); });

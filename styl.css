@@ -1,0 +1,70 @@
+/*=============== FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:wght@200&display=swap');
+
+/*=============== COLORS ===============*/
+:root {
+    --black: #060404;
+    --white: #ffffff;
+    --darkgreen: #2d6b68;
+    --lightgreen: #c3d1ba;
+    --darkgray:#8f8f8f;
+    --lightgray: #fafafa;
+ }
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    display:flex;
+    flex-direction: column;
+    background-color: var(--white);
+    border: 35px solid var(--lightgreen);
+    /* padding: 100%; */
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+}
+#headerSection {
+text-align: center;
+height: 10%;
+padding: 2rem;
+margin-bottom: 1.5rem;
+}
+#container{
+    display: flex;
+    height: 70%;
+}
+#usersSection {
+   width: 25%;
+   border-right: 2px solid var(--darkgray);
+   padding: 1.2rem;
+}
+
+#usersSection li {
+    list-style: none;
+    text-align: center;
+    padding-bottom: 0.8rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+#usersSection li:hover{
+    color: var(--white);
+    border-radius: 8px;
+    box-shadow: inset 1000px 0 0 0 var(--lightgreen);
+    /* border-collapse: collapse; */ 
+}
+#tasksSection {
+ padding: 1.7rem;
+ margin-right: 2rem;
+height: 70%;
+}
+#tasksSection p {
+    margin-bottom: 1rem;
+}
