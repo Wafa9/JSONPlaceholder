@@ -12,7 +12,7 @@ user.onload = function(){
     for (name1 of names){
         document.getElementById('usersSection').innerHTML += ` <li id="user"> ${name1.username}</li>`
 }
-    document.getElementById("user").addEventListener("click", postsRequest.bind(this, userId))
+    document.getElementById("user").addEventListener("click",function() {postsRequest( userId)})
     // eventCall()
 }
 
@@ -21,11 +21,11 @@ function eventCall() {
     document.getElementById("user").addEventListener("click", postsRequest.bind(this, userId))
 }
 
-function postsRequest(){
+function postsRequest(userId){
 
-let Request = new XMLHttpRequest(id);
+let Request = new XMLHttpRequest();
 
-Request.open('Get','https://jsonplaceholder.typicode.com/users/`${id}`/posts');
+    Request.open('Get','https://jsonplaceholder.typicode.com/users/`${userId}`/posts');
 Request.responseType = 'json'
 Request.send();
 Request.onload = function(){
