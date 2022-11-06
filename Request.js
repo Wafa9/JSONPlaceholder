@@ -1,40 +1,53 @@
-let user = new XMLHttpRequest();
+function usersRequest(){let user = new XMLHttpRequest();
 user.open('GET','https://jsonplaceholder.typicode.com/users/')
 user.responseType = 'json'
 user.send()
 user.onload = function(){
-    let userIds = user.response;
-    for( userId of userIds){
-    console.log('nuum' + userId.id)
+    
+//     let userIds = user.response;
+//     for( userId of userIds){
+//     console.log('nuum' + userId.id)
+// }
+document.getElementById('usersSection').innerHTML+= '';
+    let users = user.response
+    for (user of users){
+        let userElement = `
+        <div id='user' onclick='userClick(${user.id})' >
+        <li>${user.name}</li>
+        </div>
+        `
+        document.getElementById('usersSection').innerHTML+= userElement;
 }
+    // document.getElementById("user").addEventListener("click",function() {postsRequest(userId)})
+}}
 
-    let names = user.response
-    for (name1 of names){
-        document.getElementById('usersSection').innerHTML += ` <li id="user"> ${name1.username}</li>`
-}
-    document.getElementById("user").addEventListener("click",function() {postsRequest( userId)})
-    // eventCall()
-}
 
 
-function eventCall() {
-    document.getElementById("user").addEventListener("click", postsRequest.bind(this, userId))
-}
 
 function postsRequest(userId){
 
 let Request = new XMLHttpRequest();
 
-    Request.open('Get','https://jsonplaceholder.typicode.com/users/`${userId}`/posts');
+    Request.open('Get','https://jsonplaceholder.typicode.com/posts?userId='+userId);
 Request.responseType = 'json'
 Request.send();
 Request.onload = function(){
+    if(Request.status >= 200 && Request.status < 300){
+    document.getElementById('postContent').innerHTML = '';
     let posts = Request.response
     for (post of posts){
-        document.getElementById('postContent').innerHTML+= `<h3>${post.title}</h3>`
-        document.getElementById('postContent').innerHTML += `<p >${post.body}</p>`
+        let postElement = `
+        <h3>${post.title}</h3>
+        <p >${post.body}</p>`
+        document.getElementById('postContent').innerHTML+= postElement;
+    }}else{
+        console.log('wafa');
     }
-}}
+}
+}
+function userClick(id){
+    let userId = id;
+    postsRequest(userId)
+}
 
-// function callRequest() {
-// document.getElementById("usersSection").addEventListener("click", postsRequest())}
+usersRequest();
