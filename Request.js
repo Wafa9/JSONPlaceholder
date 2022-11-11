@@ -1,10 +1,9 @@
 function usersRequest(){
     function RandomImg(){
-        // const imgArray = ['1.png', '2.png', '3.png', '4.png','5.png','6.png','7.png','8.png','9.png'];
-        // const randomImage = () => {
-        // const image = imgArray[Math.floor(Math.random() * 3)]; // 0 -> 2
+        const imgArray = ['1.png', '2.png', '3.png', '4.png','5.png','6.png','7.png','8.png','9.png'];
+        const image = imgArray[Math.floor(Math.random() * 7)]; // 0 -> 2
         var img = document.createElement("img");
-        var imgsrc = img.src = './imgFolder/9.png';
+        var imgsrc = img.src = './imgFolder/' + image;
         return imgsrc 
          }
     let user = new XMLHttpRequest();
