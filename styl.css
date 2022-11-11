@@ -27,7 +27,6 @@ body {
     flex-direction: column;
     background-color: var(--white);
     border: 35px solid var(--lightgreen);
-    /* padding: 100%; */
     margin: 0;
     height: 100vh;
     width: 100%;
@@ -43,27 +42,45 @@ margin-bottom: 1.5rem;
     height: 70%;
 }
 #usersSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
    width: 25%;
    border-right: 2px solid var(--darkgray);
-   padding: 1.2rem;
+   padding: 2rem;
+   padding-top: 3rem;
 }
 
 #usersSection li {
+    display: inline;
+    font-weight:bold;
     list-style: none;
     text-align: center;
-    padding-bottom: 0.8rem;
+    padding: 0 0.2rem;
     transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
-#usersSection li:hover{
+#usersSection :hover {
     color: var(--white);
     border-radius: 8px;
     box-shadow: inset 1000px 0 0 0 var(--lightgreen);
     /* border-collapse: collapse; */ 
 }
+#user {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+#user img {
+   display: inline;
+   /* padding-top: 1rem; */
+}
 #tasksSection {
  padding: 1.7rem;
+ padding-top: 4rem;
  margin-right: 2rem;
-height: 70%;
+ height: 100px;
+ /* height: 100vh; */
 }
 #tasksSection p {
     margin-bottom: 1rem;

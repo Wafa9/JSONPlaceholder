@@ -1,24 +1,28 @@
-function usersRequest(){let user = new XMLHttpRequest();
+function usersRequest(){
+    function RandomImg(){
+        // const imgArray = ['1.png', '2.png', '3.png', '4.png','5.png','6.png','7.png','8.png','9.png'];
+        // const randomImage = () => {
+        // const image = imgArray[Math.floor(Math.random() * 3)]; // 0 -> 2
+        var img = document.createElement("img");
+        var imgsrc = img.src = './imgFolder/9.png';
+        return imgsrc 
+         }
+    let user = new XMLHttpRequest();
 user.open('GET','https://jsonplaceholder.typicode.com/users/')
 user.responseType = 'json'
 user.send()
 user.onload = function(){
-    
-//     let userIds = user.response;
-//     for( userId of userIds){
-//     console.log('nuum' + userId.id)
-// }
 document.getElementById('usersSection').innerHTML+= '';
     let users = user.response
     for (user of users){
         let userElement = `
         <div id='user' onclick='userClick(${user.id})' >
+       <img src=${RandomImg()} width="30" hight="30"/>
         <li>${user.name}</li>
         </div>
         `
         document.getElementById('usersSection').innerHTML+= userElement;
 }
-    // document.getElementById("user").addEventListener("click",function() {postsRequest(userId)})
 }}
 
 
@@ -35,9 +39,11 @@ Request.onload = function(){
     if(Request.status >= 200 && Request.status < 300){
     document.getElementById('postContent').innerHTML = '';
     let posts = Request.response
-    for (post of posts){
+    posts.length = 6;
+    for(post of posts) {
+    
         let postElement = `
-        <h3>${post.title}</h3>
+        <h4>${post.title}</h4>
         <p >${post.body}</p>`
         document.getElementById('postContent').innerHTML+= postElement;
     }}else{
@@ -50,4 +56,17 @@ function userClick(id){
     postsRequest(userId)
 }
 
+// function RandomImg(){
+//  const imgArray = ['1.png', '2.png', '3.png', '4.png','5.png','6.png','7.png','8.png','9.png'];
+//  const randomImage = () => {
+// const image = imgArray[Math.floor(Math.random() * 2)]; // 0 -> 2
+// var img = document.createElement("img");
+// img.src = "./imgFolder/1.png";
+// var src = document.getElementById("imgSection");
+// src.appendChild(img);
+
+// }}
+
 usersRequest();
+
+
